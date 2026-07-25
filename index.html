@@ -52,8 +52,10 @@
             color: #ccc;
             font-weight: 600;
             cursor: pointer;
+            transition: color 0.2s ease;
         }
 
+        .nav-links button:hover,
         .nav-links button.active {
             color: #b026ff;
         }
@@ -63,6 +65,8 @@
             display: none;
             padding: 30px 20px;
             animation: fadeIn 0.3s ease-in-out;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .page.active {
@@ -77,7 +81,7 @@
         /* Hero / CTA Section */
         .hero {
             text-align: center;
-            padding: 40px 0;
+            padding: 20px 0 40px 0;
         }
 
         .hero h1 {
@@ -103,6 +107,34 @@
             border: none;
             width: 100%;
             max-width: 300px;
+            transition: transform 0.2s ease;
+        }
+
+        .cta-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Featured Drop (Home Page) */
+        .featured-section {
+            margin-top: 20px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+        }
+
+        .featured-title {
+            color: #ff5e00;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .featured-desc {
+            text-align: center; 
+            color: #ddd; 
+            font-size: 0.95rem; 
+            margin-top: 15px; 
+            padding: 0 10px;
+            line-height: 1.5;
         }
 
         /* Perfect Embeds (16:9) */
@@ -115,6 +147,7 @@
             margin-bottom: 25px;
             background-color: #000;
             border: 1px solid #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         .embed-container iframe {
@@ -128,19 +161,20 @@
         /* About Section */
         .about-box {
             background-color: #1e1e1e;
-            padding: 20px;
+            padding: 25px;
             border-radius: 10px;
             border-left: 4px solid #ff5e00;
         }
 
         .about-box ul {
-            margin-top: 15px;
+            margin-top: 20px;
             list-style: none;
         }
 
         .about-box li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: #ddd;
+            font-size: 1.05rem;
         }
     </style>
 </head>
@@ -163,19 +197,37 @@
             <p style="color: #aaa; margin-top: 10px;">High-quality Ethiopian music remixes and original beats.</p>
             <a href="https://www.youtube.com/@VibeFactoryMedia-h8y" target="_blank" class="cta-btn">Subscribe on YouTube</a>
         </div>
+
+        <!-- Featured Content Section -->
+        <div class="featured-section">
+            <h3 class="featured-title">Featured Drop</h3>
+            
+            <div class="embed-container">
+                <!-- Swap this src URL with your best performing YouTube video -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+            
+            <p class="featured-desc">
+                Hit play to experience our latest blend of modern arrangements and traditional Ethiopian sounds.
+            </p>
+        </div>
     </div>
 
-    <!-- MUSIC PAGE (Perfect Embeds) -->
+    <!-- MUSIC PAGE -->
     <div id="music" class="page">
-        <h2 style="margin-bottom: 20px; color: #b026ff;">Latest Releases</h2>
+        <h2 style="margin-bottom: 25px; color: #b026ff; text-align: center;">Latest Releases</h2>
         
         <!-- Video 1 -->
         <div class="embed-container">
-            <!-- Swap the src URL with your actual YouTube embed link -->
             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
         </div>
 
         <!-- Video 2 -->
+        <div class="embed-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Video 3 -->
         <div class="embed-container">
             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
         </div>
@@ -185,10 +237,11 @@
     <div id="about" class="page">
         <div class="about-box">
             <h2 style="color: #ff5e00;">Our Mission</h2>
-            <p style="margin-top: 10px;">Producing music with emotion, creativity, and exceptional quality for listeners around the world.</p>
+            <p style="margin-top: 15px; line-height: 1.6;">Producing music with emotion, creativity, and exceptional quality for listeners around the world.</p>
             <ul>
                 <li>✨ Original music productions</li>
                 <li>🎧 AI-powered Ethiopian music remixes</li>
+                <li>💖 Romantic and relaxing melodies</li>
                 <li>🔥 Modern beats and creative soundtracks</li>
             </ul>
         </div>
@@ -211,6 +264,9 @@
                 // Show corresponding page
                 const targetId = button.getAttribute('data-target');
                 document.getElementById(targetId).classList.add('active');
+                
+                // Scroll to top when switching pages
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     </script>
