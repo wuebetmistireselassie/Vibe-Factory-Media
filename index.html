@@ -78,10 +78,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero / CTA Section */
+        /* Hero Section (Top Message) */
         .hero {
             text-align: center;
-            padding: 20px 0 40px 0;
+            padding: 10px 0 30px 0;
         }
 
         .hero h1 {
@@ -94,31 +94,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .cta-btn {
-            display: inline-block;
-            background: linear-gradient(90deg, #ff0050, #b026ff);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            border: none;
-            width: 100%;
-            max-width: 300px;
-            transition: transform 0.2s ease;
+        
+        .intro-text {
+            color: #ddd; 
+            margin-top: 15px; 
+            line-height: 1.6;
+            font-size: 1.05rem;
+            padding: 0 10px;
         }
 
-        .cta-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Featured Drop (Home Page) */
+        /* Featured Drop */
         .featured-section {
-            margin-top: 20px;
-            padding-top: 30px;
-            border-top: 1px solid #333;
+            margin-top: 10px;
+            padding-bottom: 30px;
         }
 
         .featured-title {
@@ -126,15 +114,6 @@
             margin-bottom: 20px;
             text-align: center;
             font-size: 1.5rem;
-        }
-
-        .featured-desc {
-            text-align: center; 
-            color: #ddd; 
-            font-size: 0.95rem; 
-            margin-top: 15px; 
-            padding: 0 10px;
-            line-height: 1.5;
         }
 
         /* Perfect Embeds (16:9) */
@@ -156,6 +135,69 @@
             left: 0;
             width: 100%;
             height: 100%;
+        }
+
+        /* CTA Section (Bottom) */
+        .cta-section {
+            margin-top: 20px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            color: #b026ff;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .cta-section p {
+            color: #aaa;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .cta-btn {
+            display: block;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            width: 100%;
+            max-width: 300px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            border: none;
+            text-align: center;
+        }
+
+        .cta-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .cta-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Platform Specific Colors */
+        .yt-btn {
+            background: linear-gradient(90deg, #ff0050, #b026ff);
+        }
+
+        .tk-btn {
+            background-color: #000000;
+            border: 1px solid #444;
+        }
+
+        .fb-btn {
+            background-color: #1877F2;
         }
 
         /* About Section */
@@ -192,13 +234,16 @@
 
     <!-- HOME PAGE -->
     <div id="home" class="page active">
+        
+        <!-- Top Section: What we have to say -->
         <div class="hero">
             <h1>Feel the Vibe.<br><span class="highlight">Hear the Difference.</span></h1>
-            <p style="color: #aaa; margin-top: 10px;">High-quality Ethiopian music remixes and original beats.</p>
-            <a href="https://www.youtube.com/@VibeFactoryMedia-h8y" target="_blank" class="cta-btn">Subscribe on YouTube</a>
+            <p class="intro-text">
+                Welcome to Vibe Factory Media. We are dedicated to creating high-quality music that inspires, entertains, and connects people through sound. Explore our unique blend of modern arrangements and traditional Ethiopian styles.
+            </p>
         </div>
 
-        <!-- Featured Content Section -->
+        <!-- Middle Section: Featured Video -->
         <div class="featured-section">
             <h3 class="featured-title">Featured Drop</h3>
             
@@ -206,28 +251,35 @@
                 <!-- Swap this src URL with your best performing YouTube video -->
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
             </div>
-            
-            <p class="featured-desc">
-                Hit play to experience our latest blend of modern arrangements and traditional Ethiopian sounds.
-            </p>
         </div>
+
+        <!-- Bottom Section: Call To Action Buttons -->
+        <div class="cta-section">
+            <h3>Join Our Community</h3>
+            <p>Never miss a new release. Follow us on your favorite platforms!</p>
+            
+            <div class="cta-buttons">
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@VibeFactoryMedia-h8y" target="_blank" class="cta-btn yt-btn">Subscribe on YouTube</a>
+                
+                <!-- TikTok -->
+                <a href="https://tiktok.com/@vibe.factory.medi" target="_blank" class="cta-btn tk-btn">Follow on TikTok</a>
+                
+                <!-- Facebook (Replace the # with your actual Facebook Page URL) -->
+                <a href="#" target="_blank" class="cta-btn fb-btn">Like on Facebook</a>
+            </div>
+        </div>
+
     </div>
 
     <!-- MUSIC PAGE -->
     <div id="music" class="page">
         <h2 style="margin-bottom: 25px; color: #b026ff; text-align: center;">Latest Releases</h2>
         
-        <!-- Video 1 -->
         <div class="embed-container">
             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
         </div>
 
-        <!-- Video 2 -->
-        <div class="embed-container">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-        
-        <!-- Video 3 -->
         <div class="embed-container">
             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
         </div>
@@ -254,18 +306,14 @@
 
         buttons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons and pages
                 buttons.forEach(btn => btn.classList.remove('active'));
                 pages.forEach(page => page.classList.remove('active'));
 
-                // Add active class to clicked button
                 button.classList.add('active');
 
-                // Show corresponding page
                 const targetId = button.getAttribute('data-target');
                 document.getElementById(targetId).classList.add('active');
                 
-                // Scroll to top when switching pages
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
