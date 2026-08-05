@@ -11,50 +11,50 @@ const siteData = {
 
     // 2. Hero Section (Top Banner)
     hero: {
-        latestVideoId: "dQw4w9WgXcQ" // Just the 11-character YouTube ID
+        latestVideoId: "Zw3vSKy1oBE" // Just the 11-character YouTube ID
     },
 
     // 3. Latest Release Section
     latestRelease: {
-        videoId: "dQw4w9WgXcQ", // Just the 11-character YouTube ID
+        videoId: "Zw3vSKy1oBE", // Just the 11-character YouTube ID
         category: "MUSIC VIDEO",
-        title: "YA JEMA",
-        artist: "ESTIF",
-        views: "2.3M VIEWS"
+        title: "Azurit - አዙሪት",
+        artist: "Wendi Mak",
+        views: "100 VIEWS"
     },
 
     // 4. Stats Section
     stats: {
-        subscribers: "150K+",
-        views: "8M+",
+        subscribers: "1K+",
+        views: "100k+",
         productions: "50+"
     },
 
     // 5. Featured Music Grid (Add as many as you want, up to 4 looks best)
     featuredMusic: [
         {
-            videoId: "1_VIDEO_ID_HERE", 
-            title: "YA JEMA",
-            artist: "Estif",
-            views: "2.3M VIEWS"
+            videoId: "Y_xHDiWlrkE", 
+            title: "Gize Ayhedim - ጊዜ አይሄድም",
+            artist: "Ahmed Teshome (Dinbi)",
+            views: "16k+ VIEWS"
         },
         {
-            videoId: "2_VIDEO_ID_HERE", 
-            title: "ተዉኝ (TAYEGN)",
-            artist: "Teddy Afro Inspired",
-            views: "1.8M VIEWS"
+            videoId: "z-zJ6GEZy8U", 
+            title: "የሰርጌ ትዝታው (Yeserge Tizitaw)",
+            artist: "Aster Aweke",
+            views: "15k+ VIEWS"
         },
         {
-            videoId: "3_VIDEO_ID_HERE", 
-            title: "እኔ ምፈልገው",
-            artist: "Inspired by Teddy Afro",
-            views: "1.2M VIEWS"
+            videoId: "XaJImGj-VX4", 
+            title: "በአይንህ ውስጥ (BeAynih Wust)",
+            artist: "Aster Aweke",
+            views: "10k+ VIEWS"
         },
         {
-            videoId: "4_VIDEO_ID_HERE", 
-            title: "ንገዘካ (NGEZAKA)",
-            artist: "Hana Girma Inspired",
-            views: "980K VIEWS"
+            videoId: "_y1susIn_s0", 
+            title: "በልዬ በልዬ (Belye Belye)",
+            artist: "Alemayehu Eshetie",
+            views: "8.5k+K VIEWS"
         }
     ]
 };
