@@ -4,367 +4,179 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vibe Factory Media</title>
-    <style>
-        /* CSS LAYOUT & DESIGN */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #121212;
-            color: #ffffff;
-        }
-
-        /* Mobile-First Navigation */
-        nav {
-            background-color: #1a1a1a;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #b026ff;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-weight: bold;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: #ff5e00;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav-links button {
-            background: none;
-            border: none;
-            color: #ccc;
-            font-weight: 600;
-            cursor: pointer;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links button:hover,
-        .nav-links button.active {
-            color: #b026ff;
-        }
-
-        /* Page Separation Logic */
-        .page {
-            display: none;
-            padding: 30px 20px;
-            animation: fadeIn 0.3s ease-in-out;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Hero Section (Top Message) */
-        .hero {
-            text-align: center;
-            padding: 10px 0 30px 0;
-        }
-
-        .hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-        }
-
-        .highlight {
-            background: linear-gradient(90deg, #b026ff, #ff5e00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .intro-text {
-            color: #ddd; 
-            margin-top: 15px; 
-            line-height: 1.6;
-            font-size: 1.05rem;
-            padding: 0 10px;
-        }
-
-        /* Featured Drop */
-        .featured-section {
-            margin-top: 10px;
-            padding-bottom: 30px;
-        }
-
-        .featured-title {
-            color: #ff5e00;
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.5rem;
-        }
-
-        /* Perfect Embeds (16:9) */
-        .embed-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            background-color: #000;
-            border: 1px solid #333;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        .embed-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* CTA Section (Bottom) */
-        .cta-section {
-            margin-top: 20px;
-            padding-top: 30px;
-            border-top: 1px solid #333;
-            text-align: center;
-        }
-
-        .cta-section h3 {
-            color: #b026ff;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        .cta-section p {
-            color: #aaa;
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .cta-btn {
-            display: block;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            width: 100%;
-            max-width: 300px;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-            border: none;
-            text-align: center;
-        }
-
-        .cta-btn:active {
-            transform: scale(0.95);
-        }
-        
-        .cta-btn:hover {
-            opacity: 0.9;
-        }
-
-        /* Platform Specific Colors */
-        .yt-btn {
-            background: linear-gradient(90deg, #ff0050, #b026ff);
-        }
-
-        .tk-btn {
-            background-color: #000000;
-            border: 1px solid #444;
-        }
-
-        .fb-btn {
-            background-color: #1877F2;
-        }
-
-        /* About Section */
-        .about-box {
-            background-color: #1e1e1e;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 4px solid #ff5e00;
-        }
-
-        .about-box h2 {
-            color: #ff5e00; 
-            margin-bottom: 20px; 
-            font-size: 1.8rem;
-        }
-
-        .about-box h3 {
-            color: #b026ff; 
-            margin-top: 25px; 
-            margin-bottom: 10px; 
-            font-size: 1.3rem;
-        }
-
-        .about-box p {
-            line-height: 1.7; 
-            color: #ccc; 
-            font-size: 1rem;
-        }
-
-        .about-box ul {
-            margin-top: 20px;
-            list-style: none;
-        }
-
-        .about-box li {
-            margin-bottom: 12px;
-            color: #ddd;
-            font-size: 1.05rem;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for Modern Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Sticky Navigation -->
-    <nav>
-        <div class="logo">Vibe Factory <span>Media</span></div>
-        <div class="nav-links">
-            <button class="nav-btn active" data-target="home">Home</button>
-            <button class="nav-btn" data-target="music">Music</button>
-            <button class="nav-btn" data-target="about">About</button>
+    <!-- Sidebar Overlay & Menu -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo-text">VIBE<span>≡</span><br><small>FACTORY MEDIA</small></h2>
+            <button id="closeMenu" class="close-btn">&times;</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">🏠 Home</a></li>
+            <li><a href="#">🎵 Music</a></li>
+            <li><a href="#">🎬 Videos</a></li>
+            <li><a href="#">📀 Albums</a></li>
+            <li><a href="#">⭐ Featured Music</a></li>
+            <li><a href="#">📖 About</a></li>
+            <li><a href="#">📰 News</a></li>
+            <li><a href="#">🤝 Collaborations</a></li>
+            <li><a href="#" class="disabled">🛒 Merchandise <small>(Coming Soon)</small></a></li>
+            <li><a href="#">📩 Contact</a></li>
+        </ul>
+        
+        <div class="sidebar-divider"></div>
+        
+        <div class="nav-languages">
+            <span>🌍 Language:</span>
+            <a href="#" class="active">English</a> | <a href="#">አማርኛ</a>
+        </div>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="nav-socials">
+            <a href="#">YouTube</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Telegram</a>
         </div>
     </nav>
 
-    <!-- HOME PAGE -->
-    <div id="home" class="page active">
-        
-        <!-- Top Section: Introduction -->
-        <div class="hero">
-            <h1>Feel the Vibe.<br><span class="highlight">Hear the Difference.</span></h1>
-            <p class="intro-text">
-                Welcome to Vibe Factory Media. We are dedicated to creating high-quality music that inspires, entertains, and connects people through sound. Explore our unique blend of modern arrangements and traditional Ethiopian styles.
-            </p>
-        </div>
-
-        <!-- Middle Section: Featured Video -->
-        <div class="featured-section">
-            <h3 class="featured-title">Featured Drop</h3>
-            
-            <div class="embed-container">
-                <!-- Featured Video: Ahmed Teshome (Dimbi) Inspired - ጊዜ አይሄድም -->
-                <iframe src="https://www.youtube.com/embed/Y_xHDiWlrkE" frameborder="0" allowfullscreen></iframe>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Navbar -->
+        <header class="top-nav">
+            <button id="openMenu" class="hamburger-btn">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+            <div class="logo">
+                <h1 class="logo-text">VIBE<span>≡</span><br><small>FACTORY MEDIA</small></h1>
             </div>
-        </div>
+            <button class="search-btn">🔍</button>
+        </header>
 
-        <!-- Bottom Section: Call To Action Buttons -->
-        <div class="cta-section">
-            <h3>Join Our Community</h3>
-            <p>Never miss a new release. Follow us on your favorite platforms!</p>
-            
-            <div class="cta-buttons">
-                <!-- YouTube -->
-                <a href="https://www.youtube.com/@VibeFactoryMedia-h8y" target="_blank" class="cta-btn yt-btn">Subscribe on YouTube</a>
-                
-                <!-- TikTok -->
-                <a href="https://tiktok.com/@vibe.factory.medi" target="_blank" class="cta-btn tk-btn">Follow on TikTok</a>
-                
-                <!-- Facebook -->
-                <a href="#" target="_blank" class="cta-btn fb-btn">Like on Facebook</a>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h4 class="accent-text">WELCOME TO</h4>
+                <h1 class="hero-title">VIBE FACTORY<br><span class="accent-text">MEDIA</span></h1>
+                <p>Creating Stories Through<br>Music & Visual Art.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary">▶ WATCH LATEST</button>
+                    <button class="btn btn-outline">🎵 LISTEN MUSIC</button>
+                </div>
             </div>
-        </div>
+        </section>
 
-    </div>
-
-    <!-- MUSIC PAGE -->
-    <div id="music" class="page">
-        <h2 style="margin-bottom: 25px; color: #b026ff; text-align: center;">Latest Releases</h2>
-        
-        <!-- Video 1: Ahmed Teshome (Dimbi) Inspired - ጊዜ አይሄድም -->
-        <div class="embed-container">
-            <iframe src="https://www.youtube.com/embed/Y_xHDiWlrkE" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <!-- Video 2: Aster Aweke inspired – Si Argadheen Moo? -->
-        <div class="embed-container">
-            <iframe src="https://www.youtube.com/embed/mwREHTw-cLI" frameborder="0" allowfullscreen></iframe>
-        </div>
-        
-        <!-- Video 3: Aster Aweke inspired – በአይንህ ውስጥ -->
-        <div class="embed-container">
-            <iframe src="https://www.youtube.com/embed/XaJImGj-VX4" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <!-- Video 4: Ahmed Teshome (Dimbi) Inspired – ለአንቺ ብቻ -->
-        <div class="embed-container">
-            <iframe src="https://www.youtube.com/embed/r5Hh6q7_lBQ" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <!-- ABOUT PAGE -->
-    <div id="about" class="page">
-        <div class="about-box">
-            <h2>The Vibe Factory Story</h2>
-            
-            <p style="color: #eee; font-size: 1.05rem;">
-                Welcome to Vibe Factory Media. Our mission is to produce music with emotion, creativity, and exceptional quality for listeners around the world. We believe in pushing the boundaries of what digital content can be, creating an immersive audio-visual experience for our audience.
-            </p>
-
-            <h3>Our Sound</h3>
-            <p>
-                We specialize in crafting deep, structural track arrangements that bridge cultural and generational gaps. By blending traditional Ethiopian musical roots with modern elements of pop, jazz, soul, and funk, we create a soundscape that is entirely unique. Whether it is a high-energy beat or a romantic, relaxing melody, every track is meticulously designed.
-            </p>
-
-            <h3>Innovation & Technology</h3>
-            <p style="margin-bottom: 25px;">
-                Vibe Factory Media stands at the intersection of art and technology. We actively leverage advanced AI-driven media generation tools to push our creative limits. This allows us to engineer custom audio remixes, conceptualize unique visual assets, and deliver fresh musical experiences with unmatched precision.
-            </p>
-
-            <div style="border-top: 1px solid #333; padding-top: 20px;">
-                <h4 style="color: #ff5e00; margin-bottom: 15px; font-size: 1.1rem;">What You'll Find Here:</h4>
-                <ul>
-                    <li>✨ <strong>Original Productions:</strong> Intricate, multi-genre songwriting.</li>
-                    <li>🎧 <strong>AI-Powered Remixes:</strong> Next-generation Ethiopian music engineering.</li>
-                    <li>💖 <strong>Mood-Driven Melodies:</strong> Relaxing, romantic, and soulful tracks.</li>
-                    <li>🔥 <strong>Creative Soundtracks:</strong> Modern beats and dynamic video assets.</li>
-                </ul>
+        <!-- Latest Release Section -->
+        <section class="section latest-release">
+            <div class="section-header">
+                <h2>LATEST RELEASE <span>—</span></h2>
+                <a href="#" class="view-all">VIEW ALL &gt;</a>
             </div>
-        </div>
-    </div>
+            <div class="latest-card">
+                <div class="latest-info">
+                    <span class="accent-text text-small">MUSIC VIDEO</span>
+                    <h2>YA JEMA</h2>
+                    <h3>ESTIF</h3>
+                    <p class="views">▷ 2.3M VIEWS</p>
+                    <button class="btn btn-primary">WATCH NOW &rarr;</button>
+                </div>
+            </div>
+        </section>
 
-    <!-- JAVASCRIPT LOGIC (Page Separation) -->
-    <script>
-        const buttons = document.querySelectorAll('.nav-btn');
-        const pages = document.querySelectorAll('.page');
+        <!-- Stats Section -->
+        <section class="section stats">
+            <div class="stat-item">
+                <h3>👥 150K+</h3>
+                <p>SUBSCRIBERS</p>
+            </div>
+            <div class="stat-item">
+                <h3>👁️ 8M+</h3>
+                <p>VIEWS</p>
+            </div>
+            <div class="stat-item">
+                <h3>🎬 50+</h3>
+                <p>PRODUCTIONS</p>
+            </div>
+        </section>
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                buttons.forEach(btn => btn.classList.remove('active'));
-                pages.forEach(page => page.classList.remove('active'));
+        <!-- Featured Music Section -->
+        <section class="section featured-music">
+            <div class="section-header">
+                <h2>FEATURED MUSIC <span>—</span></h2>
+                <a href="#" class="view-all">VIEW ALL &gt;</a>
+            </div>
+            <div class="grid-container">
+                <!-- Card 1 -->
+                <div class="music-card">
+                    <div class="music-img" style="background: #333;"></div>
+                    <h4>YA JEMA</h4>
+                    <p>Estif</p>
+                    <small>▷ 2.3M VIEWS</small>
+                </div>
+                <!-- Card 2 -->
+                <div class="music-card">
+                    <div class="music-img" style="background: #444;"></div>
+                    <h4>ተዉኝ (TAYEGN)</h4>
+                    <p>Teddy Afro Inspired</p>
+                    <small>▷ 1.8M VIEWS</small>
+                </div>
+                <!-- Card 3 -->
+                <div class="music-card">
+                    <div class="music-img" style="background: #555;"></div>
+                    <h4>እኔ ምፈልገው</h4>
+                    <p>Inspired by Teddy Afro</p>
+                    <small>▷ 1.2M VIEWS</small>
+                </div>
+                <!-- Card 4 -->
+                <div class="music-card">
+                    <div class="music-img" style="background: #666;"></div>
+                    <h4>ንገዘካ (NGEZAKA)</h4>
+                    <p>Hana Girma Inspired</p>
+                    <small>▷ 980K VIEWS</small>
+                </div>
+            </div>
+        </section>
 
-                button.classList.add('active');
+        <!-- CTA Section -->
+        <section class="section cta-section">
+            <div class="cta-content">
+                <h2>BECOME PART<br>OF THE JOURNEY.</h2>
+                <p>Every play,<br>every share,<br>writes the next story.</p>
+                <button class="btn btn-primary">▶ SUBSCRIBE ON YOUTUBE</button>
+            </div>
+        </section>
 
-                const targetId = button.getAttribute('data-target');
-                document.getElementById(targetId).classList.add('active');
-                
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-    </script>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-logo">
+                 <h2 class="logo-text">VIBE<span>≡</span><br><small>FACTORY MEDIA</small></h2>
+            </div>
+            <div class="footer-links">
+                <a href="#">YOUTUBE</a>
+                <a href="#">FACEBOOK</a>
+                <a href="#">INSTAGRAM</a>
+                <a href="#">TIKTOK</a>
+                <a href="#">TELEGRAM</a>
+            </div>
+            <div class="footer-contact">
+                <p>CONTACT</p>
+                <a href="mailto:info@vibefactorymedia.com" class="accent-text">info@vibefactorymedia.com</a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Vibe Factory Media. All rights reserved.
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
