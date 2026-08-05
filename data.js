@@ -54,7 +54,7 @@ const siteData = {
             videoId: "_y1susIn_s0", 
             title: "በልዬ በልዬ (Belye Belye)",
             artist: "Alemayehu Eshetie",
-            views: "8.5k+K VIEWS"
+            views: "8.5k+ VIEWS"
         }
     ]
 };
