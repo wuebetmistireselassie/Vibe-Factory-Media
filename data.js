@@ -1,12 +1,12 @@
 const siteData = {
     // 1. Social Media Links
     socials: {
-        youtubeChannel: "https://www.youtube.com/@YOUR_CHANNEL",
-        facebook: "https://facebook.com/YOUR_PAGE",
-        instagram: "https://instagram.com/YOUR_PROFILE",
-        tiktok: "https://tiktok.com/@YOUR_PROFILE",
-        telegram: "https://t.me/YOUR_CHANNEL",
-        email: "info@vibefactorymedia.com"
+        youtubeChannel: "https://www.youtube.com/@VibeFactoryMedia-h8y",
+        facebook: "https://www.facebook.com/share/1G2xUnXHdZ/",
+        instagram: "https://www.instagram.com/vibefactorymedia?igsh=MWlzc2Rxa2tqenNmaQ==",
+        tiktok: "https://www.tiktok.com/@vibe.factory.medi?_r=1&_t=ZS-98dU9y68190",
+        telegram: "https://t.me/google4to",
+        email: "changesat2021@gmail.com"
     },
 
     // 2. Hero Section (Top Banner)
