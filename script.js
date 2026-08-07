@@ -1,119 +1,60 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // ==========================================
-    // 1. POPULATE DATA FROM data.js
-    // ==========================================
-    
-    // Set Social & Channel Links
-    document.getElementById('nav-youtube').href = siteData.socials.youtubeChannel;
-    document.getElementById('nav-facebook').href = siteData.socials.facebook;
-    document.getElementById('nav-instagram').href = siteData.socials.instagram;
-    document.getElementById('nav-telegram').href = siteData.socials.telegram;
-    
-    document.getElementById('hero-listen-btn').href = siteData.socials.youtubeChannel;
-    document.getElementById('cta-youtube').href = siteData.socials.youtubeChannel;
-    
-    document.getElementById('footer-youtube').href = siteData.socials.youtubeChannel;
-    document.getElementById('footer-facebook').href = siteData.socials.facebook;
-    document.getElementById('footer-instagram').href = siteData.socials.instagram;
-    document.getElementById('footer-tiktok').href = siteData.socials.tiktok;
-    document.getElementById('footer-telegram').href = siteData.socials.telegram;
-    
-    const emailLink = document.getElementById('footer-email');
-    emailLink.href = `mailto:${siteData.socials.email}`;
-    emailLink.textContent = siteData.socials.email;
+    // 1. Sidebar Logic
+    const sidebar = document.getElementById("sidebar");
+    const sidebarOverlay = document.getElementById("sidebarOverlay");
+    const openSidebarBtn = document.getElementById("openSidebar");
+    const closeSidebarBtn = document.getElementById("closeSidebar");
 
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-
-    // Set Latest Release Data
-    document.getElementById('hero-watch-btn').setAttribute('data-video-id', siteData.hero.latestVideoId);
-    
-    document.getElementById('latest-category').textContent = siteData.latestRelease.category;
-    document.getElementById('latest-title').textContent = siteData.latestRelease.title;
-    document.getElementById('latest-artist').textContent = siteData.latestRelease.artist;
-    document.getElementById('latest-views').textContent = `▷ ${siteData.latestRelease.views}`;
-    document.getElementById('latest-watch-btn').setAttribute('data-video-id', siteData.latestRelease.videoId);
-    
-    // Auto-pull YouTube thumbnail for Latest Release Background
-    const latestBg = document.getElementById('latest-card-bg');
-    latestBg.style.background = `linear-gradient(to right, rgba(0,0,0,0.9), transparent), url('https://img.youtube.com/vi/${siteData.latestRelease.videoId}/maxresdefault.jpg') center/cover`;
-
-    // Set Stats
-    document.getElementById('stat-subscribers').textContent = `👥 ${siteData.stats.subscribers}`;
-    document.getElementById('stat-views').textContent = `👁️ ${siteData.stats.views}`;
-    document.getElementById('stat-productions').textContent = `🎬 ${siteData.stats.productions}`;
-
-    // Generate Featured Music Grid
-    const gridContainer = document.getElementById('featured-grid');
-    siteData.featuredMusic.forEach(music => {
-        const card = document.createElement('div');
-        card.className = 'music-card play-video-btn';
-        card.setAttribute('data-video-id', music.videoId);
-        card.style.cursor = 'pointer';
-        
-        card.innerHTML = `
-            <div class="music-img" style="background: url('https://img.youtube.com/vi/${music.videoId}/maxresdefault.jpg') center/cover;"></div>
-            <h4>${music.title}</h4>
-            <p>${music.artist}</p>
-            <small>▷ ${music.views}</small>
-        `;
-        gridContainer.appendChild(card);
+    // Open Sidebar
+    openSidebarBtn.addEventListener("click", () => {
+        sidebar.classList.add("active");
+        sidebarOverlay.classList.add("active");
     });
 
+    // Close Sidebar via Close Button
+    closeSidebarBtn.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+        sidebarOverlay.classList.remove("active");
+    });
 
-    // ==========================================
-    // 2. MODAL & VIDEO PLAYER LOGIC
-    // ==========================================
-    const modal = document.getElementById('videoModal');
-    const closeModalBtn = document.getElementById('closeModal');
-    const youtubePlayer = document.getElementById('youtubePlayer');
-    const youtubeDirectLink = document.getElementById('youtubeDirectLink');
-    const playButtons = document.querySelectorAll('.play-video-btn');
+    // Close Sidebar when clicking outside (on the overlay)
+    sidebarOverlay.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+        sidebarOverlay.classList.remove("active");
+    });
 
-    playButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const videoId = button.getAttribute('data-video-id');
-            
-            if (videoId) {
-                youtubePlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-                youtubeDirectLink.href = `https://www.youtube.com/watch?v=${videoId}`;
-                modal.classList.add('active');
-            }
+    // Close Sidebar when clicking a menu link
+    const closeOnClickLinks = document.querySelectorAll('.close-on-click');
+    closeOnClickLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            sidebar.classList.remove("active");
+            sidebarOverlay.classList.remove("active");
         });
     });
 
-    const closeVideoModal = () => {
+    // 2. Video Modal Logic
+    const modal = document.getElementById('videoModal');
+    const closeBtn = document.getElementById('closeModal');
+    const youtubePlayer = document.getElementById('youtubePlayer');
+
+    // Function to open modal and play video
+    window.openVideoModal = function(videoId) {
+        youtubePlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Stop background scrolling
+    }
+
+    // Function to close modal and stop video
+    function closeModal() {
         modal.classList.remove('active');
-        setTimeout(() => { youtubePlayer.src = ''; }, 300); 
-    };
+        youtubePlayer.src = ''; // Stop video
+        document.body.style.overflow = 'auto'; // Restore background scrolling
+    }
 
-    closeModalBtn.addEventListener('click', closeVideoModal);
+    closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeVideoModal();
-    });
-
-
-    // ==========================================
-    // 3. SIDEBAR NAVIGATION LOGIC
-    // ==========================================
-    const openMenuBtn = document.getElementById("openMenu");
-    const closeMenuSidebarBtn = document.getElementById("closeMenu");
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("sidebarOverlay");
-
-    openMenuBtn.addEventListener("click", () => {
-        sidebar.classList.add("active");
-        overlay.classList.add("active");
-    });
-
-    closeMenuSidebarBtn.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-        overlay.classList.remove("active");
-    });
-
-    overlay.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-        overlay.classList.remove("active");
+        if(e.target === modal) {
+            closeModal();
+        }
     });
 });
