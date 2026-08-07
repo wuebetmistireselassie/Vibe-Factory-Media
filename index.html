@@ -21,29 +21,29 @@
             <li><a href="#home" class="close-on-click">🏠 Home</a></li>
             <li><a href="#featured-section" class="close-on-click">🎵 Music</a></li>
             <li><a href="#videos-section" class="close-on-click">🎬 Videos</a></li>
-            <li><a href="#" class="disabled">📀 Albums <small>(Coming Soon)</small></a></li>
+            <li><a href="javascript:void(0)" class="disabled">📀 Albums <small>(Coming Soon)</small></a></li>
             <li><a href="#featured-section" class="close-on-click">⭐ Featured Music</a></li>
             <li><a href="#about-section" class="close-on-click">📖 About</a></li>
-            <li><a href="#" class="disabled">📰 News</a></li>
+            <li><a href="javascript:void(0)" class="disabled">📰 News <small>(Coming Soon)</small></a></li>
             <li><a href="#about-section" class="close-on-click">🤝 Collaborations</a></li>
-            <li><a href="#" class="disabled">🛒 Merchandise <small>(Coming Soon)</small></a></li>
+            <li><a href="javascript:void(0)" class="disabled">🛒 Merchandise <small>(Coming Soon)</small></a></li>
             <li><a href="#footer-section" class="close-on-click">📩 Contact</a></li>
         </ul>
         
         <div class="sidebar-divider"></div>
         
-        <!-- Google Translate Widget Container -->
+        <!-- Standard Google Translate Widget -->
         <div class="nav-languages">
-            <span>🌍 Language:</span>
+            <span style="font-size: 0.9rem; font-weight: 600;">🌍 Language:</span>
             <div id="google_translate_element"></div>
         </div>
 
         <div class="sidebar-divider"></div>
         
         <div class="nav-socials">
-            <a href="#">YouTube</a>
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
+            <a href="javascript:void(0)">YouTube</a>
+            <a href="javascript:void(0)">Facebook</a>
+            <a href="javascript:void(0)">Instagram</a>
         </div>
     </div>
 
@@ -75,7 +75,7 @@
     <section class="section" id="videos-section">
         <div class="section-header">
             <h2>LATEST <span>RELEASE</span></h2>
-            <a href="#" class="view-all">VIEW ALL ></a>
+            <a href="#videos-section" class="view-all">VIEW ALL ></a>
         </div>
         <div class="latest-card" id="latest-release-container">
             <!-- Injected via data.js -->
@@ -91,7 +91,7 @@
     <section class="section featured-music" id="featured-section">
         <div class="section-header">
             <h2>FEATURED <span>MUSIC</span></h2>
-            <a href="#" class="view-all">VIEW ALL ></a>
+            <a href="#featured-section" class="view-all">VIEW ALL ></a>
         </div>
         <div class="grid-container" id="featured-grid">
             <!-- Injected via data.js -->
@@ -140,14 +140,13 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
-                includedLanguages: 'en,am',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
+                includedLanguages: 'en,am' // Only English and Amharic
             }, 'google_translate_element');
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+    <!-- Your Scripts -->
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
